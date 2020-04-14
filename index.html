@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Proyecto2</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="statics/css/style.css">
+</head>
+<body>
+<h1>Formulario de alumnos</h1>
+
+
+Nombre:<input type="text" required id="name"><br>
+Apellido:<input type="text" required id="surname"><br>
+Teléfono:<input type="text" required id="phone"><br>
+<p>Selecione el nivel académico actual:</p>
+<select id="level">
+    <option value="Primaria">Colegio (primaria)</option>
+    <option value="Secundaria">Colegio o Instituto (secundaria)</option>
+    <option value="Formación Profesional">Formación profesional</option>
+    <option value="Universidad">Universidad</option>
+</select><br><br>
+Nombre de la institución:<input type="text" id="levelName">
+Carrera o módulo que cursa actualmente:<input type="text" id="degree">
+Buscas orientación sobre una alguna especialidad o titulación:<input type="radio" name="si" id="yes">Si<input type="radio" name="no" id="no">No
+<p>Comentarios:</p>
+<textarea rows="4" cols="40" placeholder="comentario o alguna referencia de contacto" id="comments"></textarea><br>
+<input type="submit" value="Enviar datos" id="send">
+<input type="reset" value="Reanudar" id="reset">
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>   
+
+<script src="statics/js/index.js"></script>
+
+</body>
+
+</html>

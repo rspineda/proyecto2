@@ -1,0 +1,12 @@
+{
+  "name": "proyecto2",
+  "version": "1.0.0",
+  "description": "registro_de_alumnos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ronald Pineda",
+  "license": "ISC",
+  "dependencies": {}
+}
