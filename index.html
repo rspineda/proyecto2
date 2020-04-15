@@ -6,9 +6,29 @@
     <link rel="stylesheet" type="text/css" href="statics/css/style.css">
 </head>
 <body>
-<h1>Formulario de alumnos</h1>
+<h1>FORMULARIO DE ALUMNOS</h1>
 
 
+<div class="logs">
+    
+    <div class="log1">
+        <h2>Login de usuarios</h2>   
+        Email:<input type="text" id="logemail" class="registro">
+        Contraseña:<input type="text" id="logpassword" class="registro">
+        <input type="submit" value="login" id="loginEmail">
+        <input type="submit" value="logout" id="logouts">
+    </div>
+    <div class="log2">
+        <button><img src="./statics/img/googleLogo.png"> <b>Login con google</b></button>
+    </div>
+
+</div>
+
+<hr>
+
+<h2>Registrarse como nuevo usuario</h2>
+Email:<input type="text" id="email">
+Contraseña:<input type="text" id="password">
 Nombre:<input type="text" required id="name"><br>
 Apellido:<input type="text" required id="surname"><br>
 Teléfono:<input type="text" required id="phone"><br>
@@ -18,7 +38,7 @@ Teléfono:<input type="text" required id="phone"><br>
     <option value="Secundaria">Colegio o Instituto (secundaria)</option>
     <option value="Formación Profesional">Formación profesional</option>
     <option value="Universidad">Universidad</option>
-</select><br><br>
+</select>
 Nombre de la institución:<input type="text" id="levelName">
 Carrera o módulo que cursa actualmente:<input type="text" id="degree">
 Buscas orientación sobre una alguna especialidad o titulación:<input type="radio" name="si" id="yes">Si<input type="radio" name="no" id="no">No
@@ -32,9 +52,11 @@ Buscas orientación sobre una alguna especialidad o titulación:<input type="rad
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>   
+     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script> <!--Para la base de datos-->
+     <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script> <!--Para la autentificacion-->
 
 <script src="statics/js/index.js"></script>
+<script src="statics/js/auth.js"></script>
 
 </body>
 

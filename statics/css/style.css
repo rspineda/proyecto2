@@ -3,6 +3,10 @@ h1{
     text-align: center;
 }
 
+h2{
+  color: rgb(21,44,87);
+}
+
 input[type=text], select {
   background-color: #f1f1f1;
   width: 100%;
@@ -33,6 +37,19 @@ input[type=submit], input[type=reset] {
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
-  }  
+  }
+button{
+  border: 2px solid #ccc;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    color: rgb(21,44,87);
+ }   
 
-  
+.logs{
+  display: flex;
+}
+.log2{
+  margin: auto;
+}
