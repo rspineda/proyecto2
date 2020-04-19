@@ -1,4 +1,3 @@
-
 // My web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDEwX2nyLNbYQMiwmeC6wHATE4xzPE6S58",
@@ -14,8 +13,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 //Accedo a la base de datos:
 const database = firebase.database();
-//Accedo a un documento
-//const ref = database.ref("alumnos");
 
 //Extraigo el los datos del alumno desde el DOM y los subo al documento
 document.getElementById("send").addEventListener("click", registro);
@@ -29,7 +26,8 @@ function registro(){
     const comments = document.getElementById("comments").value;
     const counseling = document.getElementById("yes").value;
     const key = `${name} ${surname}`;
-    const info = {
+    
+    const perfil = {
         nombre : name,
         apellido : surname,
         telefono : phone,
@@ -39,17 +37,32 @@ function registro(){
         consejo: counseling,
         comentario: comments
     }
-    //console.log(info);
+    const especialidad = {
+        nombreEntidad : levelName,
+        carrera: degree 
+    }
 
-    //accedo a la referencia del documento (el nuevo alumno)
-    const refalumno = database.ref(key);
-    refalumno.set(info)
+    //accedo a la referencia de la  base de datos
+    const refPerfil = database.ref(`perfiles/${key}`);
+    const refEspecialidades = database.ref(`especialiades/${key}`);
+    //almaceno los datos
+    refPerfil.set(perfil)
     .then(()=>{
-        console.log('los datos del alumno han sido guradados correctamente')
+        console.log('Perfil del alumno guardado correctamente')
     })
     .catch(()=>{
-        console.log('error al guardar los datos en la base de datos')
+        console.log('error al guardar perfil en la base de datos')
+    });
+
+    refEspecialidades.set(especialidad)
+    .then(()=>{
+        console.log(`especialidad guardadada correctamente`);
     })
+    .catch(()=>{
+        console.log(`error al guardar especialidad`);
+    })
+
+
 }
 //resfrescar la pagina o borrar los datos
 document.getElementById("reset").addEventListener("click",()=>{location.reload()});

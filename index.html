@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+    
 <head>
     <title>Proyecto2</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="statics/css/style.css">
 </head>
+
 <body>
 <h1>FORMULARIO DE ALUMNOS</h1>
 
@@ -13,10 +15,11 @@
     
     <div class="log1">
         <h2>Login de usuarios</h2>   
-        Email:<input type="text" id="logemail" class="registro">
-        Contraseña:<input type="text" id="logpassword" class="registro">
+        Email:<input type="text" id="logEmail" class="registro">
+        Contraseña:<input type="text" id="logPassword" class="registro">
         <input type="submit" value="login" id="loginEmail">
-        <input type="submit" value="logout" id="logouts">
+        <input type="submit" value="logout" id="logout">
+        <p>¿olvidaste tu contraseña?</p><input type="submit" value="recuperarla" id="getPass">
     </div>
     <div class="log2">
         <button><img src="./statics/img/googleLogo.png"> <b>Login con google</b></button>
@@ -26,26 +29,32 @@
 
 <hr>
 
-<h2>Registrarse como nuevo usuario</h2>
-Email:<input type="text" id="email">
-Contraseña:<input type="text" id="password">
-Nombre:<input type="text" required id="name"><br>
-Apellido:<input type="text" required id="surname"><br>
-Teléfono:<input type="text" required id="phone"><br>
-<p>Selecione el nivel académico actual:</p>
-<select id="level">
-    <option value="Primaria">Colegio (primaria)</option>
-    <option value="Secundaria">Colegio o Instituto (secundaria)</option>
-    <option value="Formación Profesional">Formación profesional</option>
-    <option value="Universidad">Universidad</option>
-</select>
-Nombre de la institución:<input type="text" id="levelName">
-Carrera o módulo que cursa actualmente:<input type="text" id="degree">
-Buscas orientación sobre una alguna especialidad o titulación:<input type="radio" name="si" id="yes">Si<input type="radio" name="no" id="no">No
-<p>Comentarios:</p>
-<textarea rows="4" cols="40" placeholder="comentario o alguna referencia de contacto" id="comments"></textarea><br>
-<input type="submit" value="Enviar datos" id="send">
-<input type="reset" value="Reanudar" id="reset">
+<div id="divRegistro">
+
+    <h2>Registrarse como nuevo usuario</h2>
+
+    Email:<input type="text" id="email">
+    Contraseña:<input type="text" id="password">
+    Nombre:<input type="text" required id="name"><br>
+    Apellido:<input type="text" required id="surname"><br>
+    Teléfono:<input type="text" required id="phone"><br>
+    <p>Selecione el nivel académico actual:</p>
+    <select id="level">
+        <option value="Primaria">Colegio (primaria)</option>
+        <option value="Secundaria">Colegio o Instituto (secundaria)</option>
+        <option value="Formación Profesional">Formación profesional</option>
+        <option value="Universidad">Universidad</option>
+    </select>
+    Nombre de la institución:<input type="text" id="levelName">
+    Carrera o módulo que cursa actualmente:<input type="text" id="degree">
+    Buscas orientación sobre una alguna especialidad o titulación:<input type="radio" name="si" id="yes">Si<input type="radio" name="no" id="no">No
+    <p>Comentarios:</p>
+    <textarea rows="4" cols="40" placeholder="comentario o alguna referencia de contacto" id="comments"></textarea><br>
+    <input type="submit" value="Enviar datos" id="send">
+    <input type="reset" value="Reanudar" id="reset">
+
+</div>
+
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
