@@ -19,8 +19,14 @@ function usuarios() {
     document.getElementById("divUniversidades").style.display = "none";
     document.getElementById("divContacto").style.display = "none";
     document.getElementById("divUsuarios").style.display = "block";
-    document.getElementById("parrafo").innerHTML = "Aquí pondré todos los usuarios con sus especialidades";
-
+    document.getElementById("parrafo").innerHTML = "";
+    document.getElementById("parrafo").innerHTML += "<h2>Listados de alumnos y especialidades</h2>";
+    const ref = database.ref("especialidades").orderByKey();
+    ref.once('value', (snapshot)=>{
+            snapshot.forEach((childSnapshot)=>{
+                document.getElementById("parrafo").innerHTML += `<b>${childSnapshot.key}</b> estudia <b>${childSnapshot.child("carrera").val()}</b> en <b>${childSnapshot.child("nombreEntidad").val()}</b><br>`;
+            })          
+    });
 }
 
 function universidades() {
