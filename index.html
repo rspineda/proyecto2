@@ -8,6 +8,20 @@
 </head>
 
 <body>
+
+<!-- Navegación-->
+<nav  id="nav">
+    <div id="navegacion">
+        <ul>
+            <li><a href="#" id="home">Home</a></li>
+            <li><a href="#" id="registro">Registro</a></li>
+            <li><a href="#" id="usuarios">Usuarios y Especualidades</a></li>
+            <li><a href="#" id="universidades">Universidades</a></li>
+            <li><a href="#" id="contacto">Contacto</a></li>
+        </ul>
+    </div>
+</nav>
+    
 <h1>FORMULARIO DE ALUMNOS</h1>
 
 
@@ -55,11 +69,30 @@
 
 </div>
 
+<div id="divUsuarios">
+    <p id="parrafo"></p>
+</div>
+
+<div id="divUniversidades">
+    <p id="univ"></p>
+</div>
+    
+<div id="divContacto">
+        
+    <h2>A continuación podrás detallar un mensaje de consulta a cualquier usuario registrado sobre la especialidad que haya o esté cursando:</h2>
+    Nombre de la persona a la que realizas la consulta:<input type="text" required id="nombreMensaje"><br>
+    Carrera, módulo o especialidad sobre la que realizas la consulta:<input type="text" id="especialidadMensaje">
+    <p>Detalla el mensaje:</p>
+    <textarea rows="4" cols="40" placeholder="mensaje o consulta" id="mensaje"></textarea><br>
+    <input type="submit" value="Enviar datos" id="sendMensaje">
+    <input type="reset" value="Reanudar" id="resetMensaje">
+</div>
 
 
 <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script> 
 <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+<script src="./statics/js/routes.js"></script>
 <script src="statics/js/index.js"></script>
 <script src="statics/js/auth.js"></script>
 

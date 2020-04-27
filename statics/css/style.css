@@ -7,6 +7,22 @@ h2{
   color: rgb(21,44,87);
 }
 
+#navegacion ul{
+  list-style-type: none;
+  text-align: center;
+}
+#navegacion li{
+  display: inline;
+  text-align: center;
+  margin: 0 10px 0 0;
+}
+#navegacion li a {
+  padding: 2px 7px 2px 7px;
+  color: rgb(151, 92, 14);
+  text-decoration: none;
+}
+
+
 input[type=text], select {
   background-color: #f1f1f1;
   width: 100%;
