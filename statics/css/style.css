@@ -66,6 +66,12 @@ button{
 .logs{
   display: flex;
 }
+
 .log2{
   margin: auto;
+}
+
+#map{
+  height: 90vh;
+  width: 100%;
 }

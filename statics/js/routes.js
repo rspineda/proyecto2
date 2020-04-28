@@ -1,4 +1,4 @@
-
+window.addEventListener("load", home);
 
 function home(){
 document.getElementById("divRegistro").style.display = "none";
@@ -34,7 +34,7 @@ function universidades() {
     document.getElementById("divUsuarios").style.display = "none";
     document.getElementById("divContacto").style.display = "none";
     document.getElementById("divUniversidades").style.display = "block";
-    document.getElementById("univ").innerHTML = "Aquí pondré todas la universidades españolas";
+    document.getElementById("univ").innerHTML = "<h2>Localización de todas las Universidades Españolas</h2>";
 }
 function contacto() {
     document.getElementById("divRegistro").style.display = "none";
