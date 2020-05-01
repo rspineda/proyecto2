@@ -24,50 +24,10 @@
     </div>
 </nav>
     
-<h1>FORMULARIO DE ALUMNOS</h1>
-
-
-<div class="logs">
-    
-    <div class="log1">
-        <h2>Login de usuarios</h2>   
-        Email:<input type="text" id="logEmail" class="registro">
-        Contraseña:<input type="text" id="logPassword" class="registro">
-        <input type="submit" value="login" id="loginEmail">
-        <input type="submit" value="logout" id="logout">
-        <p>¿olvidaste tu contraseña?</p><input type="submit" value="recuperarla" id="getPass">
-    </div>
-    <div class="log2">
-        <button><img src="./statics/img/googleLogo.png"> <b>Login con google</b></button>
-    </div>
-
-</div>
 
 <hr>
 
-<div id="divRegistro">
-
-    <h2>Registrarse como nuevo usuario</h2>
-
-    Email:<input type="text" id="email">
-    Contraseña:<input type="text" id="password">
-    Nombre:<input type="text" required id="name"><br>
-    Apellido:<input type="text" required id="surname"><br>
-    Teléfono:<input type="text" required id="phone"><br>
-    <p>Selecione el nivel académico actual:</p>
-    <select id="level">
-        <option value="Primaria">Colegio (primaria)</option>
-        <option value="Secundaria">Colegio o Instituto (secundaria)</option>
-        <option value="Formación Profesional">Formación profesional</option>
-        <option value="Universidad">Universidad</option>
-    </select>
-    Nombre de la institución:<input type="text" id="levelName">
-    Carrera o módulo que cursa actualmente:<input type="text" id="degree">
-    Buscas orientación sobre una alguna especialidad o titulación:<input type="radio" name="si" id="yes">Si<input type="radio" name="no" id="no">No
-    <p>Comentarios:</p>
-    <textarea rows="4" cols="40" placeholder="comentario o alguna referencia de contacto" id="comments"></textarea><br>
-    <input type="submit" value="Enviar datos" id="send">
-    <input type="reset" value="Reanudar" id="reset">
+<div id="vistaDinamica">
 
 </div>
 
@@ -82,25 +42,17 @@
     </div>
 </div>
     
-<div id="divContacto">
-        
-    <h2>A continuación podrás detallar un mensaje de consulta a cualquier usuario registrado sobre la especialidad que haya o esté cursando:</h2>
-    Nombre de la persona a la que realizas la consulta:<input type="text" required id="nombreMensaje"><br>
-    Carrera, módulo o especialidad sobre la que realizas la consulta:<input type="text" id="especialidadMensaje">
-    <p>Detalla el mensaje:</p>
-    <textarea rows="4" cols="40" placeholder="mensaje o consulta" id="mensaje"></textarea><br>
-    <input type="submit" value="Enviar datos" id="sendMensaje">
-    <input type="reset" value="Reanudar" id="resetMensaje">
-</div>
+
 
 
 <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script> 
 <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
-<script src="./statics/js/map.js"></script>    
+<script src="//unpkg.com/navigo@6"></script>
+<script src="./statics/js/routes.js"></script>   
 <script src="./statics/js/index.js"></script>
 <script src="./statics/js/auth.js"></script>
-<script src="./statics/js/routes.js"></script>
+<script src="./statics/js/map.js"></script> 
 
 </body>
 

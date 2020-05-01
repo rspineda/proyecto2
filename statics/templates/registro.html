@@ -1,0 +1,25 @@
+<div id="divRegistro">
+
+    <h1>Registrarse como nuevo usuario</h1>
+
+    Email:<input type="text" id="email">
+    Contraseña:<input type="text" id="password">
+    Nombre:<input type="text" required id="name"><br>
+    Apellido:<input type="text" required id="surname"><br>
+    Teléfono:<input type="text" required id="phone"><br>
+    <p>Selecione el nivel académico actual:</p>
+    <select id="level">
+        <option value="Primaria">Colegio (primaria)</option>
+        <option value="Secundaria">Colegio o Instituto (secundaria)</option>
+        <option value="Formación Profesional">Formación profesional</option>
+        <option value="Universidad">Universidad</option>
+    </select>
+    Nombre de la institución:<input type="text" id="levelName">
+    Carrera o módulo que cursa actualmente:<input type="text" id="degree">
+    Buscas orientación sobre una alguna especialidad o titulación:<input type="radio" name="si" id="yes">Si<input type="radio" name="no" id="no">No
+    <p>Comentarios:</p>
+    <textarea rows="4" cols="40" placeholder="comentario o alguna referencia de contacto" id="comments"></textarea><br>
+    <input type="submit" value="Enviar datos" id="send">
+    <input type="reset" value="Reanudar" id="reset">
+
+</div>

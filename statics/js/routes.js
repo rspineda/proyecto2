@@ -1,50 +1,51 @@
 window.addEventListener("load", home);
 
 function home(){
-document.getElementById("divRegistro").style.display = "none";
-document.getElementById("divUsuarios").style.display = "none";
-document.getElementById("divUniversidades").style.display = "none";
-document.getElementById("divContacto").style.display = "none";
-}
-
-function registro(){
-    document.getElementById("divRegistro").style.display ="block"
-    document.getElementById("divUsuarios").style.display = "none";
-    document.getElementById("divUniversidades").style.display = "none";
-    document.getElementById("divContacto").style.display = "none";
+  document.getElementById("divUniversidades").style.visibility = "hidden";
+  document.getElementById("map").style.height= "2vh";
 }
 
 function usuarios() {
-    document.getElementById("divRegistro").style.display = "none";
-    document.getElementById("divUniversidades").style.display = "none";
-    document.getElementById("divContacto").style.display = "none";
-    document.getElementById("divUsuarios").style.display = "block";
-    document.getElementById("parrafo").innerHTML = "";
-    document.getElementById("parrafo").innerHTML += "<h2>Listados de alumnos y especialidades</h2>";
+  document.getElementById("vistaDinamica").innerHTML= ""  
+    home();
+    document.getElementById("vistaDinamica").innerHTML += "<h1>Listados de alumnos y especialidades</h1>";
     const ref = database.ref("especialidades").orderByKey();
     ref.once('value', (snapshot)=>{
             snapshot.forEach((childSnapshot)=>{
-                document.getElementById("parrafo").innerHTML += `<b>${childSnapshot.key}</b> estudia <b>${childSnapshot.child("carrera").val()}</b> en <b>${childSnapshot.child("nombreEntidad").val()}</b><br>`;
+                document.getElementById("vistaDinamica").innerHTML += `<b>${childSnapshot.key}</b> estudia <b>${childSnapshot.child("carrera").val()}</b> en <b>${childSnapshot.child("nombreEntidad").val()}</b><br>`;
             })          
     });
+
 }
 
-function universidades() {
-    document.getElementById("divRegistro").style.display = "none";
-    document.getElementById("divUsuarios").style.display = "none";
-    document.getElementById("divContacto").style.display = "none";
-    document.getElementById("divUniversidades").style.display = "block";
-    document.getElementById("univ").innerHTML = "<h2>Localización de todas las Universidades Españolas</h2>";
-}
-function contacto() {
-    document.getElementById("divRegistro").style.display = "none";
-    document.getElementById("divUsuarios").style.display = "none";
-    document.getElementById("divUniversidades").style.display = "none";
-    document.getElementById("divContacto").style.display = "block";
+function universidades(){
+  document.getElementById("vistaDinamica").innerHTML= "";
+  document.getElementById("univ").innerHTML = "<h1>Localización de todas las Universidades Españolas</h1>";
+  document.getElementById("divUniversidades").style.visibility= "visible";
+  document.getElementById("map").style.height= "90vh";
 }
 
-const index = document.getElementById("home").addEventListener("click", home);
-const reg = document.getElementById("registro").addEventListener("click", registro);
-const users = document.getElementById("usuarios").addEventListener("click", usuarios);
-const univ = document.getElementById("universidades").addEventListener("click", universidades);
-const contact = document.getElementById("contacto").addEventListener("click", contacto);
+function loadHTML(url, id) {
+    req = new XMLHttpRequest();
+    req.open('GET', url);
+    req.send();
+    req.onload = () => {
+      document.getElementById(id).innerHTML = req.responseText;
+    };
+}
+  
+router = new Navigo(null, true, '#!');
+router.on({
+    'home': () => {loadHTML('./statics/templates/home.html', 'vistaDinamica'); home()},
+    'logIn-logOut': () => { loadHTML('./statics/templates/logIn-logOut.html', 'vistaDinamica'); home()} ,
+    'registro': () => { loadHTML('./statics/templates/registro.html', 'vistaDinamica'); home()} ,
+    'usuarios': usuarios,
+    'universidades': universidades,
+    'contacto': ()=>{loadHTML('./statics/templates/contacto.html', 'vistaDinamica'); home()},
+});
+  
+router.on(() => {loadHTML('./statics/templates/home.html', 'vistaDinamica')});
+  
+router.notFound((query) => { document.getElementById('vistaDinamica').innerHTML = '<h3>Página no encontrada</h3>'; });
+  
+router.resolve();
