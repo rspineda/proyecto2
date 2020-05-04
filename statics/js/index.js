@@ -17,7 +17,7 @@ const database = firebase.database();
 let alertas = null;
 function feedback(mensaje){
     if(alertas) {
-        clearTimeout(futuro);
+        clearTimeout(alertas);
       }
     let divFeedback = document.getElementById("feedback");
     divFeedback.style.top = (15 + window.scrollY) + 'px';
