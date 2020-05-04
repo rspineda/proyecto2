@@ -1,15 +1,17 @@
+<h1>Login de usuarios</h1>
+
 <div class="logs">
-    
-    <div class="log1">
-        <h2>Login de usuarios</h2>   
+
+    <div class="log1">       
         Email:<input type="text" id="logEmail" class="registro">
         Contraseña:<input type="text" id="logPassword" class="registro">
-        <input type="submit" value="login" id="loginEmail">
-        <input type="submit" value="logout" id="logout">
-        <p>¿olvidaste tu contraseña?</p><input type="submit" value="recuperarla" id="getPass">
+        <input type="submit" value="login" id="loginEmail" onclick="acceso()">
+        <input type="submit" value="logout" id="logout" onclick="salir()">
+        <p>¿olvidaste tu contraseña?</p><input type="submit" value="recuperarla" id="getPass" onclick="restablecerContraseña()">
     </div>
+
     <div class="log2">
-        <button><img src="./statics/img/googleLogo.png"> <b>Login con google</b></button>
+        <button onclick="accesoGoogle()"><img src="./statics/img/googleLogo.png"> <span class="letra">Login con google</span></button>
     </div>
 
 </div>

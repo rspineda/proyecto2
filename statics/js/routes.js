@@ -6,16 +6,15 @@ function home(){
 }
 
 function usuarios() {
-  document.getElementById("vistaDinamica").innerHTML= ""  
+  document.getElementById("vistaDinamica").innerHTML= "";  
     home();
     document.getElementById("vistaDinamica").innerHTML += "<h1>Listados de alumnos y especialidades</h1>";
     const ref = database.ref("especialidades").orderByKey();
-    ref.once('value', (snapshot)=>{
+    ref.on('value', (snapshot)=>{
             snapshot.forEach((childSnapshot)=>{
                 document.getElementById("vistaDinamica").innerHTML += `<b>${childSnapshot.key}</b> estudia <b>${childSnapshot.child("carrera").val()}</b> en <b>${childSnapshot.child("nombreEntidad").val()}</b><br>`;
             })          
     });
-
 }
 
 function universidades(){
@@ -25,27 +24,29 @@ function universidades(){
   document.getElementById("map").style.height= "90vh";
 }
 
+//routing
 function loadHTML(url, id) {
-    req = new XMLHttpRequest();
-    req.open('GET', url);
-    req.send();
-    req.onload = () => {
-      document.getElementById(id).innerHTML = req.responseText;
-    };
+  req = new XMLHttpRequest();
+  req.open('GET', url);
+  req.send();
+  req.onload = () => {
+    document.getElementById(id).innerHTML = "";
+    document.getElementById(id).innerHTML += req.responseText;
+  };
 }
   
 router = new Navigo(null, true, '#!');
 router.on({
-    'home': () => {loadHTML('./statics/templates/home.html', 'vistaDinamica'); home()},
-    'logIn-logOut': () => { loadHTML('./statics/templates/logIn-logOut.html', 'vistaDinamica'); home()} ,
-    'registro': () => { loadHTML('./statics/templates/registro.html', 'vistaDinamica'); home()} ,
-    'usuarios': usuarios,
-    'universidades': universidades,
-    'contacto': ()=>{loadHTML('./statics/templates/contacto.html', 'vistaDinamica'); home()},
+  'home': () => {loadHTML('./statics/templates/home.html', 'vistaDinamica'); home()},
+  'logIn-logOut': () => { loadHTML('./statics/templates/logIn-logOut.html', 'vistaDinamica'); home()} ,
+  'registro': () => { loadHTML('./statics/templates/registro.html', 'vistaDinamica'); home()} ,
+  'usuarios': usuarios,
+  'universidades': universidades,
+  'contacto': ()=>{loadHTML('./statics/templates/contacto.html', 'vistaDinamica'); home()},
 });
   
 router.on(() => {loadHTML('./statics/templates/home.html', 'vistaDinamica')});
-  
+
 router.notFound((query) => { document.getElementById('vistaDinamica').innerHTML = '<h3>Página no encontrada</h3>'; });
-  
+
 router.resolve();

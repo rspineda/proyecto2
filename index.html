@@ -6,53 +6,56 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="statics/css/style.css">
 </head>
 
 <body>
 
-<!-- Navegación-->
-<nav  id="nav">
-    <div id="navegacion">
-        <ul>
-            <li><a href="#" id="home">Home</a></li>
-            <li><a href="#" id="registro">Registro</a></li>
-            <li><a href="#" id="usuarios">Usuarios y Especualidades</a></li>
-            <li><a href="#" id="universidades">Universidades</a></li>
-            <li><a href="#" id="contacto">Contacto</a></li>
-        </ul>
-    </div>
-</nav>
-    
+    <nav  id="nav">
+        <div id="navegacion">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#logIn-logOut">Log in/Log out</a></li>
+                <li><a href="#registro">Registrarse</a></li>
+                <li><a href="#usuarios">Usuarios y Especialidades</a></li>
+                <li><a href="#universidades">Universidades</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+        
 
-<hr>
+    <hr>
 
-<div id="vistaDinamica">
-
-</div>
-
-<div id="divUsuarios">
-    <p id="parrafo"></p>
-</div>
-
-<div id="divUniversidades">
-    <p id="univ"></p>
-    <div id="map">
+    <div id="vistaDinamica">
 
     </div>
-</div>
-    
+
+
+    <div id="divUniversidades">
+        <p id="univ"></p>
+        
+        <div id="map">
+        
+        </div>
+    </div>
 
 
 
-<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script> 
-<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
-<script src="//unpkg.com/navigo@6"></script>
-<script src="./statics/js/routes.js"></script>   
-<script src="./statics/js/index.js"></script>
-<script src="./statics/js/auth.js"></script>
-<script src="./statics/js/map.js"></script> 
+    <div id="feedback"></div>
+        
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+    <script src="//unpkg.com/navigo@6"></script>
+    <script src="./statics/js/routes.js"></script>   
+    <script src="./statics/js/index.js"></script>
+    <script src="./statics/js/auth.js"></script>
+    <script src="./statics/js/map.js"></script> 
 
 </body>
 

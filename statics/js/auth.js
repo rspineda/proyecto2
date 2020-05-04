@@ -1,12 +1,9 @@
-
-document.getElementById("send").addEventListener("click", registro);
-function registro(){
-
+//Registro de un nuevo usuario mediante email y contraseña
+function autenticacion(){
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   firebase.auth().createUserWithEmailAndPassword(email, password)
   .then((data)=>{
-    
     console.log(data.user.uid); 
     const datos = {
       nombre: document.getElementById("name").value,
@@ -16,10 +13,10 @@ function registro(){
     const refUsuario = database.ref("usuariosRegistrados").child(data.user.uid);
     refUsuario.set(datos)
     .then(()=>{
-        console.log('los datos del alumno han sido guradados correctamente')
+        console.log('los datos del alumno han sido guradados correctamente en autenticación');
     })
     .catch(()=>{
-        console.log('error al guardar los datos en la base de datos')
+        console.log('error al guardar los datos en la base de datos de autenticación')
     })
   })
   .catch((error)=> {
@@ -29,51 +26,82 @@ function registro(){
   }); 
 }
 
-document.getElementById("loginEmail").addEventListener("click", accesoRegistrado); 
-function accesoRegistrado(){
+//acceso mediante usuario y contraseña:
+function acceso(){
     const email = document.getElementById("logEmail").value;
     const password = document.getElementById("logPassword").value;
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((user)=>{
-      console.log(`${user.email} esta logueado`)
+    .then((data)=>{
+      console.log(`${data.user.email} está logueado` );
+      feedback(`Bienvenido  " ${data.user.email} " `);
     })
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
       console.log(error.code);
       if (errorCode === 'auth/wrong-password') {
-        alert('Contraseña incorrecta');
+        feedback('Contraseña incorrecta')
       } else {
-        alert(errorMessage);
+        feedback(errorMessage);
       }
     });
 }
 
-document.getElementById("logout").addEventListener("click", salir);
+//acceso mediante Google
+function accesoGoogle(){
+  let provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/userinfo.email'); 
+  provider.addScope('https://www.googleapis.com/auth/userinfo.profile');
+  firebase.auth().signInWithPopup(provider)
+  .then(function(result) {
+    let user = result.user;
+    let datos = {
+      nombre : user.displayName,
+      email : user.email
+    }
+    console.log(user);
+    const refUsuario = database.ref("usuariosRegistrados").child(user.uid);
+    refUsuario.set(datos)
+    .then(()=>{
+        console.log('los datos del alumno han sido guradados correctamente en autenticación');
+    })
+    .catch(()=>{
+        console.log('error al guardar los datos en la base de datos de autenticación')
+    })
+  }).catch(function(error) {
+    let errorMessage = error.message;
+    console.log(error,errorMessage);
+  });
+}
+
+//Log out
 function salir(){
-    firebase.auth().signOut().then( () => {
-      console.log("Deslogado")
-    }).catch( (error) => {
-        console.log("Error en el signOut") 
-    });
-};
+  firebase.auth().signOut().then( () => {
+    feedback("Desconectado");
+  }).catch( (error) => {
+      console.log("Error en el signOut");
+  });
+}
 
 
+//Ver usuario conectado en ese momento
 firebase.auth().onAuthStateChanged((user)=> {  
-  if (user) {
-    console.log(`el ususario ${user.email} está conectado`)
-  } else {
-    console.log(`Ningun usuario logueado`)
-  }
+if (user) {
+  feedback(`Conectado como " ${user.email} " `)
+
+} else {
+  console.log(`Ningun usuario logueado`);
+}
 });
 
-document.getElementById("getPass").addEventListener("click", restablecerContraseña);
+//Para restablacer la contraseña
 function restablecerContraseña(){
   let auth = firebase.auth();
   let emailAddress = document.getElementById("logEmail").value;
   
   auth.sendPasswordResetEmail(emailAddress).then(function() {
     console.log("se ha enviado un email de restablacimiento de contraseña");
+    feedback("se ha enviado un email de restablacimiento de contraseña");
   }).catch(function(error) {
     console-log("error al restablecer la contraseña");
   });

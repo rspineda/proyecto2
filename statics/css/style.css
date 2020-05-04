@@ -1,3 +1,6 @@
+body{
+  font-family: 'Barlow Condensed', sans-serif;
+}
 #portada{
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
@@ -14,6 +17,7 @@
 
 
 h1{
+  font-family: 'Barlow Condensed', sans-serif;  
     color: rgb(151,92,14);
     text-align: center;
 }
@@ -22,22 +26,30 @@ h2{
   color: rgb(21,44,87);
 }
 
+.subtitulo{
+  text-align: center;
+}
+
 
 #navegacion ul{
   list-style-type: none;
   text-align: center;
 }
+
 #navegacion li{
   display: inline;
   text-align: center;
   margin: 0 10px 0 0;
 }
+
 #navegacion li a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
+  font-size: x-large;
   padding: 2px 7px 2px 7px;
   color: rgb(151, 92, 14);
   text-decoration: none;
 }
-
 
 input[type=text], select {
   background-color: #f1f1f1;
@@ -82,6 +94,9 @@ button{
 .logs{
   display: flex;
 }
+.log1{
+  margin: auto;
+}
 .log2{
   margin: auto;
 }
@@ -89,4 +104,22 @@ button{
 #map{
   height: 90vh;
   width: 100%;
+}
+
+#feedback {
+  width: 200px;
+  padding: 15px;
+  background-color:rgb(151, 92, 14);
+  color: #fff;
+  border: 3px solid #fff;
+  box-shadow: 5px 5px 5px #aaa;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: .8em;
+  display: none;
+}
+
+.letra{
+  color: rgb(151,92,14);
 }
